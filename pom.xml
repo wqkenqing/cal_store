@@ -95,6 +95,11 @@
             <version>${slf4j_version}</version>
             <scope>runtime</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
         <!-- LOGGING end -->
 
         <!--jsoup-->
