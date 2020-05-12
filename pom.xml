@@ -7,7 +7,20 @@
     <groupId>com.stone</groupId>
     <artifactId>cal_store</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <properties>
+        <java.version>1.8</java.version>
         <!--spark-->
         <spark.version>2.11</spark.version>
         <spark_id_version>2.1.0</spark_id_version>
@@ -54,6 +67,12 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-mllib_${spark.version}</artifactId>
             <version>${spark_id_version}</version>
+        </dependency>
+        <!--spark-es-->
+        <dependency>
+              <groupId>org.elasticsearch</groupId>
+              <artifactId>elasticsearch-spark-20_2.11</artifactId>
+              <version>6.7.2</version>
         </dependency>
 
 
@@ -165,7 +184,11 @@
             <artifactId>hbase-common</artifactId>
             <version>1.2.1</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.7</version>
+        </dependency>
         <!--<dependency>-->
         <!--<groupId>org.apache.solr</groupId>-->
         <!--<artifactId>solr-solrj</artifactId>-->

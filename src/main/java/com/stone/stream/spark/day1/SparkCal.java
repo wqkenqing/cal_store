@@ -22,10 +22,11 @@ public class SparkCal {
 
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> tRDD = sc.textFile("/Users/wqkenqing/Desktop/tmp/yd_conver.txt", 3);
+        JavaRDD<String> tRDD = sc.textFile("/Users/kuiq.wang/Desktop/upload/yd_conver.txt", 3);
 
         long res = tRDD.count();
 
         log.info("text_count's result is [{}]", res);
+
     }
 }
