@@ -1,10 +1,12 @@
 package com.stone.stream.spark.day1.tranform;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
+@Slf4j
 public class RDDTransform {
 
     public static void map(JavaRDD<String> rdd) {
@@ -45,7 +47,7 @@ public class RDDTransform {
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("transform");
         JavaSparkContext jsc = new JavaSparkContext(conf);
-        JavaRDD<String> rdd = jsc.textFile("/Users/kuiq.wang/Desktop/upload/yd_conver.txt");
+        JavaRDD<String> rdd = jsc.textFile("/Users/wqkenqing/Desktop/tmp/yd_conver.txt");
 //        map(rdd);
         filter(rdd);
     }
