@@ -1,4 +1,4 @@
-package com.stone.stream.spark.day1.stream;
+package com.stone.stream.spark.day1.stream.window;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.Optional;
@@ -17,7 +17,7 @@ import java.util.List;
  * @time 2020/7/16
  * @desc stream算子
  */
-public class StreamCal {
+public class StreamCalWindow {
 
     public static void main(String[] args) throws InterruptedException {
         SparkConf conf = new SparkConf().setAppName("NetWorkStream");
