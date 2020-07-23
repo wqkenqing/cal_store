@@ -4,6 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
+import org.apache.spark.sql.functions;
+import org.junit.Test;
+import org.apache.spark.sql.functions.*;
+
+import java.util.Arrays;
+
 
 /**
  * @author wqkenqing
@@ -25,6 +31,26 @@ public class SparkSqlCal {
         session.sql("select * from people").show();
 
     }
+    /**
+     * 员工测试
+     * */
+    public static void testEmployee(SparkSession session) {
+        Dataset<Row> df1 = session.read().json("/Users/wqkenqing/Desktop/北风/department.json");
+        Dataset<Row> df = session.read().json("/Users/wqkenqing/Desktop/北风/employee.json");
+//        df.join(df1, df.col("id").equalTo(df1.col("depId"))).agg(df.col("age"), df1.col("age")).show();
+        df.filter("age>21").join(df1, df1.col("id").equalTo(df.col("depId"))).groupBy(df.col("name")).agg(functions.max(df.col("age"))).show();
+    }
+    /**
+     *
+     *
+     * */
+    public static void testAction(SparkSession session) {
+        Dataset<Row> df = session.read().json("/Users/wqkenqing/Desktop/北风/employee.json");
+//        df.foreach();
+        Arrays.asList(df.collect()).forEach(s->{
+            System.out.println(s);
+        });
+    }
     public static void main(String[] args) {
         SparkSession session = SparkSession.builder()
                 .appName("sql session")
@@ -32,7 +58,8 @@ public class SparkSqlCal {
                 .config("spark.sql.warehouse.dir", "/Users/wqkenqing/Desktop/deploy_code/cal_store/warehouse")
                 .getOrCreate();
 //        createDataFrame(session);
-        createSql(session);
+//        createSql(session);
+        testEmployee(session);
     }
 
 }
