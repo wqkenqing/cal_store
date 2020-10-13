@@ -29,7 +29,7 @@
         <zookeeper_version>3.3.3</zookeeper_version>
         <slf4j_version>1.7.7</slf4j_version>
         <log4j_version>1.2.17</log4j_version>
-        <junit_version>4.11</junit_version>
+        <junit_version>4.13.1</junit_version>
         <!-- Plugin的属性 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
